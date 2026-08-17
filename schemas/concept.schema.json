@@ -1,0 +1,41 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://example.invalid/agentic-semantic-atlas/concept.schema.json",
+  "title": "Agentic Semantic Atlas Concept (experimental)",
+  "description": "Exploratory schema. This is not yet a canonical wire format.",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["asa", "definition"],
+  "properties": {
+    "asa": {
+      "const": "concept/v0"
+    },
+    "definition": {
+      "type": "string",
+      "minLength": 1
+    },
+    "constraints": {
+      "type": "object",
+      "additionalProperties": true
+    },
+    "relations": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["predicate", "target"],
+        "properties": {
+          "predicate": {
+            "type": "string",
+            "minLength": 1
+          },
+          "target": {
+            "type": "string",
+            "minLength": 1,
+            "description": "Expected to become a CID or another protocol-defined immutable reference."
+          }
+        }
+      }
+    }
+  }
+}
