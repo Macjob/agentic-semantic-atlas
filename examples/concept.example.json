@@ -1,0 +1,9 @@
+{
+  "asa": "concept/v0",
+  "definition": "Produce a concise summary while preserving material uncertainty and distinguishing sourced facts from inference.",
+  "constraints": {
+    "concise": true,
+    "preserve_uncertainty": true,
+    "distinguish_fact_from_inference": true
+  }
+}
