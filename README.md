@@ -137,4 +137,4 @@ See [`CONTRIBUTING.md`](CONTRIBUTING.md).
 
 ## License
 
-A project license has not yet been selected. This should be decided explicitly before substantial external contributions are accepted.
+This project is licensed under the [MIT License](LICENSE).
