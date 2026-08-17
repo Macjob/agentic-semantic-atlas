@@ -94,6 +94,14 @@ The local identifier is disposable. The CID is the verifiable semantic identity.
 
 This project is currently an **exploration and protocol-design experiment**, not a production standard.
 
+A deep prior-art and architecture review currently classifies ASA as:
+
+> **B — Mostly existing ideas, potentially useful integration.**
+
+The research found substantial prior art in Semantic Web standards, Trusty URIs, nanopublications, agent ontology negotiation, content addressing, and negotiated compression dictionaries. The remaining hypothesis worth testing is whether their combination as a small runtime semantic layer for modern AI agents provides measurable practical value.
+
+See [`docs/deep-research-findings.md`](docs/deep-research-findings.md) for the current research synthesis, ASA/0 recommendation, strongest arguments against the idea, and benchmark requirements.
+
 The first questions are intentionally fundamental:
 
 - What exactly belongs in the canonical representation of a concept?
@@ -112,6 +120,7 @@ docs/
   architecture.md
   protocol.md
   prior-art.md
+  deep-research-findings.md
 schemas/
   concept.schema.json
 examples/
