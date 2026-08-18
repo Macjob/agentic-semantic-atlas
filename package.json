@@ -1,0 +1,25 @@
+{
+  "name": "agentic-semantic-atlas",
+  "version": "0.1.0",
+  "private": true,
+  "description": "ASA/0 minimal prototype: content-addressed semantic concepts with session-local aliases",
+  "type": "module",
+  "scripts": {
+    "asa": "tsx src/cli.ts",
+    "demo": "tsx src/demo.ts",
+    "test": "node --import tsx --test tests/**/*.test.ts",
+    "typecheck": "tsc --noEmit"
+  },
+  "engines": {
+    "node": ">=20"
+  },
+  "dependencies": {
+    "@ipld/dag-cbor": "^9.2.2",
+    "multiformats": "^13.3.1"
+  },
+  "devDependencies": {
+    "@types/node": "^22.10.0",
+    "tsx": "^4.19.2",
+    "typescript": "^5.7.2"
+  }
+}

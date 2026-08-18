@@ -1,0 +1,39 @@
+{
+  "vectors": [
+    {
+      "name": "spec-minimal-example",
+      "concept": {
+        "asa": "concept/v0",
+        "definition": "Produce a concise summary.",
+        "constraints": {
+          "preserve_uncertainty": true
+        }
+      },
+      "cid": "bafyreib5u2ll5ayqw76xthdhuxqaybxjs7apwpx3jxoo63knztd4dof7gu",
+      "canonicalBytesHex": "a3636173616a636f6e636570742f76306a646566696e6974696f6e781a50726f64756365206120636f6e636973652073756d6d6172792e6b636f6e73747261696e7473a17470726573657276655f756e6365727461696e7479f5"
+    },
+    {
+      "name": "repository-example",
+      "concept": {
+        "asa": "concept/v0",
+        "definition": "Produce a concise summary while preserving material uncertainty and distinguishing sourced facts from inference.",
+        "constraints": {
+          "concise": true,
+          "preserve_uncertainty": true,
+          "distinguish_fact_from_inference": true
+        }
+      },
+      "cid": "bafyreiczuozlbsc2rjgwklbkuwp46tajfncdvsyskfwxefczphiruskqgq",
+      "canonicalBytesHex": "a3636173616a636f6e636570742f76306a646566696e6974696f6e787050726f64756365206120636f6e636973652073756d6d617279207768696c652070726573657276696e67206d6174657269616c20756e6365727461696e747920616e642064697374696e6775697368696e6720736f75726365642066616374732066726f6d20696e666572656e63652e6b636f6e73747261696e7473a367636f6e63697365f57470726573657276655f756e6365727461696e7479f5781f64697374696e67756973685f666163745f66726f6d5f696e666572656e6365f5"
+    },
+    {
+      "name": "no-constraints",
+      "concept": {
+        "asa": "concept/v0",
+        "definition": "Answer the question."
+      },
+      "cid": "bafyreibdi36ln7xdq2ukgxlxusu2wbkjpjjuczuimmgbyxdeindxzsw36m",
+      "canonicalBytesHex": "a2636173616a636f6e636570742f76306a646566696e6974696f6e74416e7377657220746865207175657374696f6e2e"
+    }
+  ]
+}
