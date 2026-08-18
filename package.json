@@ -7,6 +7,7 @@
   "scripts": {
     "asa": "tsx src/cli.ts",
     "demo": "tsx src/demo.ts",
+    "benchmark:tokens": "tsx src/benchmark/run.ts",
     "test": "node --import tsx --test tests/**/*.test.ts",
     "typecheck": "tsc --noEmit"
   },
@@ -15,6 +16,7 @@
   },
   "dependencies": {
     "@ipld/dag-cbor": "^9.2.2",
+    "js-tiktoken": "^1.0.21",
     "multiformats": "^13.3.1"
   },
   "devDependencies": {

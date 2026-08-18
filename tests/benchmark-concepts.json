@@ -1,0 +1,82 @@
+[
+  {
+    "name": "very-short",
+    "concept": {
+      "asa": "concept/v0",
+      "definition": "Answer the question."
+    }
+  },
+  {
+    "name": "concise-summary",
+    "concept": {
+      "asa": "concept/v0",
+      "definition": "Produce a concise summary.",
+      "constraints": {
+        "preserve_uncertainty": true
+      }
+    }
+  },
+  {
+    "name": "medium",
+    "concept": {
+      "asa": "concept/v0",
+      "definition": "Produce a concise summary while preserving material uncertainty and distinguishing sourced facts from inference.",
+      "constraints": {
+        "concise": true,
+        "preserve_uncertainty": true,
+        "distinguish_fact_from_inference": true
+      }
+    }
+  },
+  {
+    "name": "verbose-complex",
+    "concept": {
+      "asa": "concept/v0",
+      "definition": "Analyze the provided medical case study. Identify the key symptoms, differential diagnoses, recommended diagnostic tests, treatment options with evidence-based references, potential drug interactions, follow-up schedule, and patient monitoring parameters.",
+      "constraints": {
+        "include_evidence": true,
+        "evidence_level": "systematic-review",
+        "highlight_drug_interactions": true,
+        "include_follow_up": true,
+        "patient_age_aware": true,
+        "structured_output": "sections",
+        "max_words": 2000,
+        "legal_disclaimer": true
+      }
+    }
+  },
+  {
+    "name": "many-constraints",
+    "concept": {
+      "asa": "concept/v0",
+      "definition": "Translate the document.",
+      "constraints": {
+        "source_language": "en",
+        "target_language": "de",
+        "register": "formal",
+        "preserve_formatting": true,
+        "preserve_terminology": true,
+        "glossary": "provided",
+        "no_additions": true,
+        "no_omissions": true,
+        "sentence_by_sentence": false,
+        "post_edit QA": true
+      }
+    }
+  },
+  {
+    "name": "agent-instruction",
+    "concept": {
+      "asa": "concept/v0",
+      "definition": "You are a code review agent. Examine the provided diff for bugs, security vulnerabilities, performance regressions, and style violations. Report each finding with file, line, severity, and suggested fix. Do not modify code; only report findings.",
+      "constraints": {
+        "role": "code-reviewer",
+        "severity_levels": ["critical", "warning", "info"],
+        "output_format": "structured-list",
+        "max_findings": 50,
+        "security_focus": true,
+        "performance_focus": true
+      }
+    }
+  }
+]
