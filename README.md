@@ -138,6 +138,23 @@ At least initially, the project is **not** trying to:
 - require IPFS for every implementation;
 - standardize internal chain-of-thought or private model reasoning.
 
+## ASA/0 prototype
+
+A minimal working prototype that demonstrates content-addressed semantic concepts with session-local alias negotiation between two agents. See [`docs/asa0-prototype.md`](docs/asa0-prototype.md) for what it demonstrates, how it works, and its limitations.
+
+```bash
+npm install
+npm run demo    # two-agent demonstration + benchmark
+npm test        # 18 automated tests (determinism, mutation, ordering, resolution, integrity, alias, unknown-alias, fallback)
+```
+
+CLI usage:
+
+```bash
+npm run asa -- concept build examples/concept.example.json   # compute CID, cache locally
+npm run asa -- concept inspect bafy...                         # resolve from local cache
+```
+
 ## Contributing
 
 This is intentionally early. Criticism, competing designs, interoperability experiments, benchmarks and references to prior art are welcome.
