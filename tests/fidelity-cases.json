@@ -1,0 +1,62 @@
+[
+  {
+    "name": "uncertainty-classification",
+    "concept": {
+      "asa": "concept/v0",
+      "definition": "Classify each statement as fact, inference, or uncertain. A fact is explicitly asserted by the source text, an inference is a conclusion or causal claim not explicitly asserted, and uncertain means the available information is insufficient to decide.",
+      "constraints": {
+        "allowed_labels": ["fact", "inference", "uncertain"],
+        "preserve_uncertainty": true,
+        "output_field": "label",
+        "output_format": "json"
+      }
+    },
+    "tasks": [
+      { "id": "u1", "input": "The report explicitly states that revenue was 10 million dollars.", "expected": { "label": "fact" } },
+      { "id": "u2", "input": "Revenue probably increased because website traffic increased.", "expected": { "label": "inference" } },
+      { "id": "u3", "input": "The source omits the final sales number, so the result cannot be determined.", "expected": { "label": "uncertain" } },
+      { "id": "u4", "input": "The minutes say the meeting began at 09:00.", "expected": { "label": "fact" } },
+      { "id": "u5", "input": "The team must have shipped early because customer complaints decreased.", "expected": { "label": "inference" } }
+    ]
+  },
+  {
+    "name": "priority-routing",
+    "concept": {
+      "asa": "concept/v0",
+      "definition": "Assign a priority. HIGH means service unavailable or data loss. MEDIUM means degraded behavior with a workaround. LOW means cosmetic or documentation-only impact.",
+      "constraints": {
+        "allowed_priorities": ["high", "medium", "low"],
+        "use_only_stated_impact": true,
+        "output_field": "priority",
+        "output_format": "json"
+      }
+    },
+    "tasks": [
+      { "id": "p1", "input": "All users receive a 503 and cannot sign in.", "expected": { "priority": "high" } },
+      { "id": "p2", "input": "Exports are slower than usual, but retrying completes successfully.", "expected": { "priority": "medium" } },
+      { "id": "p3", "input": "A heading has a spelling mistake; functionality is unaffected.", "expected": { "priority": "low" } },
+      { "id": "p4", "input": "Saved records disappeared after the migration.", "expected": { "priority": "high" } },
+      { "id": "p5", "input": "The chart fails to refresh automatically, but a manual refresh works.", "expected": { "priority": "medium" } }
+    ]
+  },
+  {
+    "name": "identifier-normalization",
+    "concept": {
+      "asa": "concept/v0",
+      "definition": "Normalize the provided identifier by trimming surrounding whitespace, converting letters to lowercase, replacing every internal run of spaces with one hyphen, and leaving digits unchanged.",
+      "constraints": {
+        "do_not_translate": true,
+        "do_not_remove_digits": true,
+        "output_field": "normalized",
+        "output_format": "json"
+      }
+    },
+    "tasks": [
+      { "id": "n1", "input": "  Alpha Beta 42  ", "expected": { "normalized": "alpha-beta-42" } },
+      { "id": "n2", "input": "Project   X 7", "expected": { "normalized": "project-x-7" } },
+      { "id": "n3", "input": "  RADIO Flow 2026", "expected": { "normalized": "radio-flow-2026" } },
+      { "id": "n4", "input": "One  Two   Three 3", "expected": { "normalized": "one-two-three-3" } },
+      { "id": "n5", "input": "Already-Normal 9", "expected": { "normalized": "already-normal-9" } }
+    ]
+  }
+]

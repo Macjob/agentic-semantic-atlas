@@ -145,7 +145,7 @@ A minimal working prototype that demonstrates content-addressed semantic concept
 ```bash
 npm install
 npm run demo    # two-agent demonstration + benchmark
-npm test        # 18 automated tests (determinism, mutation, ordering, resolution, integrity, alias, unknown-alias, fallback)
+npm test        # automated protocol, benchmark, and fidelity tests
 ```
 
 CLI usage:
@@ -154,6 +154,27 @@ CLI usage:
 npm run asa -- concept build examples/concept.example.json   # compute CID, cache locally
 npm run asa -- concept inspect bafy...                         # resolve from local cache
 ```
+
+### Model fidelity benchmark
+
+The fidelity benchmark compares two equivalent prompting modes:
+
+- `expanded` — repeats the full semantic concept in every task;
+- `dictionary` — defines the concept once and references it through a compact session-local alias.
+
+With a local Ollama model:
+
+```bash
+npm run benchmark:fidelity -- --provider ollama --model qwen3:4b --n 1,5,10,25 --json
+```
+
+To inspect raw model output while diagnosing a case:
+
+```bash
+npm run benchmark:fidelity -- --provider ollama --model qwen3:4b --n 5 --include-output --json
+```
+
+The Ollama adapter uses structured output constraints so the benchmark measures semantic fidelity rather than incidental JSON formatting failures. If Ollama runs on Windows while the command runs inside WSL, `127.0.0.1` may refer to different network namespaces; run the benchmark from the Windows shell or set `OLLAMA_HOST` to an Ollama endpoint reachable from the process running Node.
 
 ## Contributing
 
